@@ -26,9 +26,7 @@ function emailErrorHandler(err, req, res, next) {
      // logger.info(`Attempting to send error alert email to ${process.env.ALERT_TO_EMAIL}`);
   
   }
-  else {
-    next();
-  }
+  next(err);
 
 }   
       
