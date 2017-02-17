@@ -18,16 +18,11 @@ function createEmailData(fromEmail, toEmail, err) {
     };
   return emailData;
 }
-
-
 function emailErrorHandler(err, req, res, next) {
   if (err instanceof FooError || err instanceof BarError) {
     emailer.sendEmail(createEmailData(process.env.ALERT_FROM_EMAIL,process.env.ALERT_TO_EMAIL, err));
      // logger.info(`Attempting to send error alert email to ${process.env.ALERT_TO_EMAIL}`);
-  
   }
   next(err);
-
-}   
-      
+}        
 module.exports = {emailErrorHandler};

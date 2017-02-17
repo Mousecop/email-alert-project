@@ -11,11 +11,6 @@ require('dotenv').config();
 const {emailErrorHandler} = require('./middleware/email'); 
 const emailer = require('./emailer')
 
-
-
-
-  
-
 const {logger} = require('./utilities/logger');
 // these are custom errors we've created
 const {FooError, BarError, BizzError} = require('./errors');
@@ -29,7 +24,6 @@ const russianRoulette = (req, res) => {
   throw new errors[
     Math.floor(Math.random() * errors.length)]('It blew up!');
 };
-
 
 app.use(morgan('common', {stream: logger.stream}));
 
